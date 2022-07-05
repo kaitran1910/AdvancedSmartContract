@@ -1,5 +1,5 @@
 /**
- * Read documentation on Inbox.test.js for more details
+ * Read documentation in test/*.test.js for more details
  * about module usages
  */
 const HDWalletProvider = require("@truffle/hdwallet-provider");
@@ -40,6 +40,8 @@ const deploy = async () => {
 };
 deploy();
 
+export {};
+
 /**
- * 
+ *
  */
