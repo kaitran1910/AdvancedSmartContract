@@ -9,14 +9,14 @@ contract Lottery {
         manager = msg.sender;
     }
 
+    function getPlayers() public view returns (address[] memory) {
+        return players;
+    }
+
     function enter() public payable {
         require(msg.value > .01 ether);
 
         players.push(msg.sender);
-    }
-
-    function getPlayers() public view returns (address[] memory) {
-        return players;
     }
 
     function random() private view returns (uint) {

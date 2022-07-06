@@ -33,8 +33,27 @@ const { abi, evm } = require("../compile.ts");
  * - describe: Group "it" tests together
  * - beforeEach: Execute some general setup code before each test
  */
-let lottery;
-let accounts;
+let lottery: {
+    options: { address: any };
+    methods: {
+        enter: () => {
+            (): any;
+            new (): any;
+            send: { (arg0: { from: any; value: any }): any; new (): any };
+        };
+        getPlayers: () => {
+            (): any;
+            new (): any;
+            call: { (arg0: { from: any }): any; new (): any };
+        };
+        pickWinner: () => {
+            (): any;
+            new (): any;
+            send: { (arg0: { from: any }): any; new (): any };
+        };
+    };
+};
+let accounts: any[];
 
 beforeEach(async () => {
     accounts = await web3.eth.getAccounts();
@@ -124,7 +143,7 @@ describe("Lottery Contract", () => {
         const finalBalance = await web3.eth.getBalance(accounts[0]);
         const difference = finalBalance - initialBalance;
 
-        console.log(web3.utils.fromWei(difference.toString(), "ether"));
+        // console.log(web3.utils.fromWei(difference.toString(), "ether"));
 
         assert(difference > web3.utils.toWei("1.8", "ether"));
     });
