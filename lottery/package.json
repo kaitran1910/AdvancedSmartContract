@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "mocha 'test/**/*.ts'"
+        "test": "@types/mocha"
     },
     "author": "Tam Nhu Tran",
     "license": "ISC",
@@ -14,9 +14,7 @@
         "mocha": "^9.1.2",
         "solc": "^0.8.9",
         "typescript": "^4.7.4",
-        "web3": "^1.6.0"
-    },
-    "devDependencies": {
+        "web3": "^1.6.0",
         "@types/mocha": "^9.1.1",
         "ts-mocha": "^10.0.0",
         "ts-node": "^10.8.2"
