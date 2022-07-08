@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "@types/mocha"
+        "test": "ts-mocha './test/**/*'"
     },
     "author": "Tam Nhu Tran",
     "license": "ISC",

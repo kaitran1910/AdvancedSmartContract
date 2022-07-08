@@ -1,4 +1,5 @@
 import Web3 from "web3";
+declare var window: any
 
 window.ethereum.request({ method: "eth_requestAccounts" });
 

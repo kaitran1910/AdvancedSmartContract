@@ -1,7 +1,7 @@
 import web3 from "./web3";
 import { AbiItem } from "web3-utils";
 
-const address = "0x6a10491a8fDD29e3E8b0598bDAf95acc0E89A296";
+const contractAddress = "0x35F8fa6c9925b90000cEBC4f5A373594f87B89F1";
 
 const abi = [
     {
@@ -31,6 +31,16 @@ const abi = [
         constant: true,
         payable: undefined,
         signature: "0x8b5b9ccc",
+    },
+    {
+        inputs: [],
+        name: "killContract",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+        constant: undefined,
+        payable: undefined,
+        signature: "0x1c02708d",
     },
     {
         inputs: [],
@@ -64,4 +74,4 @@ const abi = [
     },
 ];
 
-export default new web3.eth.Contract(abi as AbiItem[], address);
+export default new web3.eth.Contract(abi as AbiItem[], contractAddress);

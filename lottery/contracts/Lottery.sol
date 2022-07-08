@@ -23,16 +23,19 @@ contract Lottery {
         return uint(keccak256(abi.encode(block.difficulty, block.timestamp, players)));
     }
 
-    modifier restricted() {
+    modifier onlyManager() {
         require(msg.sender == manager);
         _;
     }
 
-    function pickWinner() public restricted {
-
+    function pickWinner() public onlyManager {
         uint index = random() % players.length;
         payable(players[index]).transfer(address(this).balance);
         
         players = new address[](0);
+    }
+
+    function killContract() public onlyManager {
+      selfdestruct(payable(manager));
     }
 }

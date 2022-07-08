@@ -51,6 +51,11 @@ let lottery: {
             new (): any;
             send: { (arg0: { from: any }): any; new (): any };
         };
+        killContract: () => {
+            (): any;
+            new (): any;
+            send: { (arg0: { from: any }): any; new (): any };
+        };
     };
 };
 let accounts: any[];
@@ -146,5 +151,27 @@ describe("Lottery Contract", () => {
         // console.log(web3.utils.fromWei(difference.toString(), "ether"));
 
         assert(difference > web3.utils.toWei("1.8", "ether"));
+    });
+
+    it("if not manager, cannot kill contract", async () => {
+        try {
+            await lottery.methods.killContract().send({
+                from: accounts[1],
+            });
+            assert(false);
+        } catch (err) {
+            assert(err);
+        }
+    });
+
+    it("if manager, can kill contract", async () => {
+        try {
+            await lottery.methods.killContract().send({
+                from: accounts[0],
+            });
+            assert(true);
+        } catch (err) {
+            assert(err);
+        }
     });
 });
